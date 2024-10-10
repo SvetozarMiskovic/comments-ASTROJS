@@ -4,7 +4,7 @@ import ComponentsListBody from "../../components/ComponentsListBody.astro";
 import Layout from "../../layouts/Layout.astro";
 export const prerender = false;
 
-const res = await fetch("https://vercel.app/api/comments", {
+const res = await fetch("https://comments-astrojs.vercel.app/api/comments", {
     method: 'GET',
     
 })
