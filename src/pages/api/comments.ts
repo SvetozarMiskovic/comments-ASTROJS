@@ -17,7 +17,7 @@ const dbQuery = async ({
   if (operation) {
     switch (operation) {
       case 'create': {
-        const { error, data } = await supabase
+        const { error } = await supabase
           .from('Comments')
           .insert({ author, comment });
 
@@ -25,15 +25,12 @@ const dbQuery = async ({
       }
       case 'delete': {
         console.log('AJ ID', id);
-        const { error, data } = await supabase
-          .from('Comments')
-          .delete()
-          .eq('id', id);
+        const { error } = await supabase.from('Comments').delete().eq('id', id);
 
         return { error, message: 'Succesfully deleted the comment!' };
       }
       case 'archive': {
-        const { error, data } = await supabase
+        const { error } = await supabase
           .from('Comments')
           .update({ archived })
           .eq('id', id);
@@ -44,7 +41,7 @@ const dbQuery = async ({
         return { error, message: 'Succesfully archived the comment!' };
       }
       case 'edit': {
-        const { error, data } = await supabase
+        const { error } = await supabase
           .from('Comments')
           .update({ archived, author, comment })
           .eq('id', id);
@@ -54,7 +51,7 @@ const dbQuery = async ({
     }
   }
 };
-export async function GET(ctx: APIContext) {
+export async function GET() {
   const comments = await supabase.from('Comments').select('*');
 
   return new Response(JSON.stringify({ data: comments.data }), {
