@@ -9,7 +9,7 @@ export default function SingleComment(comment: Comment) {
   const handleDelete = async ({ id, operation }: CommentDelete) => {
     const res = await deleteComment({ id, operation });
 
-    const { success, message } = await res.json();
+    const { message } = await res.json();
 
     alert(message);
   };
@@ -20,7 +20,7 @@ export default function SingleComment(comment: Comment) {
       archived,
       operation,
     });
-    const { success, message } = await res.json();
+    const { message } = await res.json();
 
     alert(message);
   };

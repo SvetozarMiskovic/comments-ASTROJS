@@ -1,0 +1,16 @@
+---
+import type { Comment } from "../types/comments-types";
+import EditSingleComment from "./EditSingleComment";
+export const prerender = false;
+const { id } = Astro.props
+
+const res = await fetch("https://comments-astrojs.vercel.app/api/comments", {
+    method: 'GET',
+})
+const { data } = await res.json()
+
+const matchingComment = data?.find((com: Comment)=> com.id === Number(id))
+  
+---
+
+<EditSingleComment client:load id={matchingComment.id} author={matchingComment.author} comment={matchingComment.comment} archived={matchingComment.archived} />

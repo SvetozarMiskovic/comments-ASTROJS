@@ -1,24 +1,9 @@
 ---
+import DynamicEditComponent from "../../../components/DynamicEditComponent.astro";
 import Layout from "../../../layouts/Layout.astro";
-import type { Comment } from "../../../types/comments-types";
-import EditSingleComment from "../../../components/EditSingleComment"
-export const prerender = false;
-const { id: idParam } = Astro.params
-console.log(Astro.params)
-
-const res = await fetch("http://localhost:4321/api/comments", {
-    method: 'GET',
-})
-const { data } = await res.json()
-
-const matchingComment = data?.find((com: Comment)=> com.id === Number(idParam))
-  
-
-console.log(matchingComment)
+const {id} = Astro.params
 
 ---
-<Layout title={`Comment - ${idParam}`}>
-
-   <EditSingleComment client:load id={matchingComment.id} author={matchingComment.author} comment={matchingComment.comment} archived={matchingComment.archived} />
-
+<Layout title={`Comment - ${id}`}>
+   <DynamicEditComponent id={id}/>
 </Layout>
