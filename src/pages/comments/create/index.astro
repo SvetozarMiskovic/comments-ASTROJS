@@ -1,0 +1,13 @@
+---
+import CreateComment from "../../../components/CreateComment";
+import Layout from "../../../layouts/Layout.astro";
+import type { CommentPayload } from "../../../types/comments-types";
+// import { newComment } from "../../../utils/comments-utils";
+
+
+
+---
+
+<Layout title='Create a comment' >
+   <CreateComment  client:idle/>
+</Layout>
