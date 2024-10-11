@@ -56,7 +56,7 @@ export async function GET() {
 export const POST = async ({ request }: { request: Request }) => {
   const {
     id = ''!,
-    archived = false!,
+    archived,
     author = '',
     comment = '',
     operation,
