@@ -1,6 +1,5 @@
 ---
 import DynamicEditComponent from "../../../components/DynamicEditComponent.astro";
-import EditSingleComment from "../../../components/EditSingleComment";
 import Layout from "../../../layouts/Layout.astro";
 export const prerender = false
 const {id} = Astro.params
@@ -8,5 +7,5 @@ const {id} = Astro.params
 ---
 <Layout title={`Comment - ${id}`}>
    <DynamicEditComponent  id={id}/>
-   <!-- <EditSingleComment client:load  /> -->
+
 </Layout>

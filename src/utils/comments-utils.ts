@@ -1,6 +1,5 @@
 import type {
   CommentArchive,
-  CommentDBQuery,
   CommentDelete,
   CommentEdit,
   CommentPayload,

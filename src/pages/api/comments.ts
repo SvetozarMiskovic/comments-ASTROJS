@@ -6,7 +6,7 @@ const dbQuery = async ({
   comment,
   operation,
   id,
-  archived = false,
+  archived,
 }: CommentPayload) => {
   if (operation) {
     switch (operation) {

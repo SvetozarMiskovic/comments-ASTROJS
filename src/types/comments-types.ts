@@ -30,8 +30,3 @@ export interface CommentEdit {
   comment: string;
   operation: string;
 }
-export interface CommentDBQuery {
-  author: string;
-  comment: string;
-  operation: string;
-}
