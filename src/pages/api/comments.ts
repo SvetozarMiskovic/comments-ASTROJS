@@ -53,31 +53,31 @@ export async function GET() {
   });
 }
 
-// export const POST = async ({ request }: { request: Request }) => {
-//   const {
-//     id = ''!,
-//     archived = false!,
-//     author = '',
-//     comment = '',
-//     operation,
-//   } = await request.json();
+export const POST = async ({ request }: { request: Request }) => {
+  const {
+    id = ''!,
+    archived = false!,
+    author = '',
+    comment = '',
+    operation,
+  } = await request.json();
 
-//   const res = await dbQuery({ author, comment, operation, id, archived });
+  const res = await dbQuery({ author, comment, operation, id, archived });
 
-//   const { error, message } = res!;
+  const { error, message } = res!;
 
-//   if (error) {
-//     return new Response(
-//       JSON.stringify({
-//         message: error.message,
-//         code: error.code,
-//         details: error.details,
-//       }),
-//       {
-//         status: 500,
-//       }
-//     );
-//   }
+  if (error) {
+    return new Response(
+      JSON.stringify({
+        message: error.message,
+        code: error.code,
+        details: error.details,
+      }),
+      {
+        status: 500,
+      }
+    );
+  }
 
-//   return new Response(JSON.stringify({ success: true, message: message }));
-// };
+  return new Response(JSON.stringify({ success: true, message: message }));
+};
