@@ -11,7 +11,7 @@ const res = await fetch("https://comments-astrojs.vercel.app/api/comments", {
 })
 const { data } = await res.json()
 
-const matchingComment = data?.find((com: Comment)=> com.id === Number(id))
+const matchingComment = await data?.find((com: Comment)=> com.id === Number(id))
   
 ---
 
