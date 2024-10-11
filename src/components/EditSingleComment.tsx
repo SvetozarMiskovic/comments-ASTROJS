@@ -126,7 +126,7 @@ export default function EditSingleComment({ paramId }: { paramId: string }) {
             />
           </label>
 
-          <div className="w-full max-w-md px-2 py-2 relative flex gap-3 justify-center">
+          <div className="w-full max-w-md px-2 py-2 relative flex gap-3 justify-center max-sm:max-w-sm">
             <button
               type="submit"
               className="min-w-28 bg-green-600 p-2 rounded font-bold text-white hover:bg-green-400 cursor-pointer transition:ease-in duration-500"
