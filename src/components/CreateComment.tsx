@@ -27,7 +27,7 @@ export default function createComment() {
   return (
     <form
       onSubmit={onSubmitHandler}
-      className="border bg-emerald-800 rounded  max-w-md mx-auto"
+      className="border bg-emerald-800 rounded max-w-md mx-auto max-md:max-w-full"
     >
       <div className="flex flex-col max-w-7xl w-full justify-start  gap-4">
         <label className="flex flex-col px-2 py-2 gap-2 font-bold text-white cursor-pointer">
