@@ -6,13 +6,8 @@ export const prerender = false;
 
 const { id } = Astro.props
 
-const res = await fetch("https://comments-astrojs.vercel.app/api/comments", {
-    method: 'GET',
-})
-const { data } = await res.json()
-
-const matchingComment = await data?.find((com: Comment)=> com.id === Number(id))
-  
 ---
 
-<EditSingleComment client:load id={matchingComment.id} author={matchingComment.author} comment={matchingComment.comment} archived={matchingComment.archived} />
+<section>
+    <EditSingleComment paramId={id} client:idle  />
+</section>

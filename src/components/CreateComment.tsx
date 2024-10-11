@@ -7,7 +7,6 @@ export default function createComment() {
 
   const onSubmitHandler: FormEventHandler = async (e) => {
     e.preventDefault();
-    console.log('eee');
 
     const res = await newComment({
       author: author,
@@ -15,7 +14,7 @@ export default function createComment() {
       operation: 'create',
     });
     const data = await res.json();
-    console.log('SAD JE KREIRAN', data);
+
     if (!data?.success) {
       alert(`Error: ${data?.message}, Code: ${data?.code}`);
     } else {

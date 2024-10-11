@@ -1,6 +1,7 @@
 export const prerender = false;
 import { supabase } from '../../lib/supabase';
 import type { CommentPayload } from '../../types/comments-types';
+
 const dbQuery = async ({
   author,
   comment,
@@ -18,7 +19,6 @@ const dbQuery = async ({
         return { error, message: 'Succsesfully created the comment!' };
       }
       case 'delete': {
-        console.log('AJ ID', id);
         const { error } = await supabase.from('Comments').delete().eq('id', id);
 
         return { error, message: 'Succesfully deleted the comment!' };
@@ -45,6 +45,8 @@ const dbQuery = async ({
     }
   }
 };
+
+// METHODS: GET
 export async function GET() {
   const comments = await supabase.from('Comments').select('*');
 
@@ -53,6 +55,7 @@ export async function GET() {
   });
 }
 
+// METHODS: POST
 export const POST = async ({ request }: { request: Request }) => {
   const {
     id = ''!,
@@ -74,7 +77,7 @@ export const POST = async ({ request }: { request: Request }) => {
         details: error.details,
       }),
       {
-        status: 500,
+        status: 404,
       }
     );
   }
