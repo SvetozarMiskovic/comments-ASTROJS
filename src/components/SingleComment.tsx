@@ -4,6 +4,7 @@ import type {
   CommentDelete,
 } from '../types/comments-types';
 import { archiveComment, deleteComment } from '../utils/comments-utils';
+export const prerender = false;
 
 export default function SingleComment(comment: Comment) {
   const handleDelete = async ({ id, operation }: CommentDelete) => {
